@@ -1,7 +1,7 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+ /*http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
-   License: none (public domain)
-*/
+   License: none (public domain)*/
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -16,28 +16,23 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 20px;
+    margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    
-    
+       
     
 }
-
-
-body {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: flex;
+}
+    body {
     line-height: 1;
 }
-.container {
-    display: flex;    
-    flex-wrap: wrap;
-    /*width: 880px;*/
-    
-}
-
 
 ol, ul {
     list-style:square;
@@ -58,7 +53,7 @@ table {
     border-spacing: 0;
 }
 
-/* Set every element's box-sizing to border-box */
+ /*Set every element's box-sizing to border-box*/ 
 * {
     box-sizing: border-box;
 }
@@ -74,45 +69,54 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 15px;
 }
 
-
+.container {
+    width: 90%;
+    margin: auto;
+}
 
 
 /* header */
 header {
-    display: flex;  
-   width: 100%;
-}
-header .logo {
-    height: 20px;
     display: flex;
-    align-content: flex-start;
+    justify-content: space-around;
+    width: 100%;
+    }
+header .logotablet {
+    display: none;
 }
-    header nav {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        justify-content: space-between;
-       
+
+header nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: top;
+    margin-top: 35px;
+  }
+
+header nav a {
+    font-size: 14px;
+    color: gray;
+    text-decoration: none;
     }
 
-    header nav a {
-        margin-right: 65px;
-        font-size: 14px;
-        color: gray;
-        text-decoration: none;
+    header nav a:hover {
+        text-decoration: underline;
     }
 
-        header nav a:hover {
-            text-decoration: underline;
-        }
+    header nav a:first-child {
+        margin-left: 0;
+    }
 
-        header nav a:first-child {
-            margin-left: 0;
-        }
+    header nav a:last-child {
+        margin-right: 0;
+    }
 
-        header nav a:last-child {
-            margin-right: 0;
-        }
+header .logo {
+    display: flex;
+    align-content: center;
+    width: 100%;
+}
 
     
 .services-header-img{
@@ -123,64 +127,52 @@ header .logo {
 
 .services {
     display: flex;
-    border-bottom: 2px solid black;
     flex-wrap: wrap;
-    
+    border-bottom: 2px solid black;
+    width: 90%;
+    padding-top: 2%;
+    margin: auto;
+        
 }
-
+    .services h2 {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 2%;
+    }
 
     .services p {
         display: flex;        
         justify-content: center;
-        align-items: flex-end;
         padding-bottom: 20px;
     }
 
 .maincontent {
     display: flex;
-    align-content: space-evenly;
+    flex-wrap: wrap;
     justify-content: space-between;
     
-    flex-wrap: wrap;
    
 }
-
-       
-
-    /*.maincontent {
-    
-    display: flex;    
-    flex-wrap: wrap;
-    align-content: space-evenly;    
-    
-    
-    
-}
-
-     .maincontent > * {        
-        
-        border: 2px solid black;
-        flex-wrap: wrap;        
-        background-color: lightgray;
-        padding: 20px;
-        
-    }*/
-    .maincontent .content {
+     .maincontent .content {
         display: flex;
         width: 40%;
+        margin: 1% auto;
         border: 2px solid black;
         flex-wrap: wrap;
         background-color: lightgray;
-        padding: 0px 20px 20px 20px;
+        padding: 2%;
         justify-content:space-between;
-        align-content: space-evenly;
+        
     }
 .content .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
     background: white;
-    vertical-align: top;
-    margin-top: 6px;
-    padding: 8px 44px;
+    width: 25%;
+    margin-top: 2%;
+    height: 40px;
     font-size: 17px;
     border: 1px solid black;
     cursor: pointer;
@@ -189,81 +181,98 @@ header .logo {
     display: flex;
     flex-wrap: wrap;
     width: 50%;
+    padding: 1%;
+    align-content: flex-start;
 }
+
 .facts {
     display: flex;
-    
-   
+    width: 90%;
     border-top: 2px solid black;
+    margin: 0 auto;
 }
+
+.servicesimg {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    padding: 2%;
     
+}
+.bottomcontent ul {
+    display: flex;
+    flex-flow:column wrap;
+    margin: 3%;
+    
+}
 
 .copyright {
     display: flex;
     justify-content: center;
-    /*width: 880px;*/
+    
 }
-
-
-/*media-tablet*/
+/*MEDIA QUERY TABLET*/
 @media screen and (max-width: 800px) {
-    .container {
-        display: flex;
-        justify-content: center;
-        margin:auto;
-    }
-
     header {
         flex-direction: column;
         align-items: center;
-
     }
 
-        header nav {
+        header .logotablet {
+            display: flex;
+            margin: 1%;
             justify-content: center;
         }
 
-    nav .logo {
-        display: none;
-    }
+        header .logo {
+            display: none;
+            margin: 1%;
+        }
 
+        header nav {
+            margin: 1%;
+            justify-content: space-evenly;
+        }
 
-    header .logotablet {
-        display: flex;
-        justify-content: center;
+    .btn {
+        flex-wrap: nowrap;
+        width: auto;
+        text-align: center;
     }
-
-    .cta img {
-        display: none;
+    .bottomcontent{
+        width: auto;
     }
-    .facts  {
-        flex-direction: column;
-       
-    }
-    .bottomcontent {
+    .servicesimg{
         width: auto;
     }
 }
 
-/*media-mobile*/
 
+
+/*MEDIA QUERY MOBILE*/
 @media screen and (max-width: 500px) {
+    .container {
+        width 100%;
+    }
     header nav {
-        flex-direction: column;
+        flex-direction:column;
+    }
+    header nav a {
+        width: 90%;
+        border-top: 1px solid gray;
+        padding:1%;
         text-align: center;
     }
+   
+        .maincontent .content {
+            flex-flow: column wrap;
+            width: 90%;
+            
+            align-content: center;
+            align-items: center;
+        }
 
-        header nav a {
-            border-top: 1px solid gray;
-            padding: 2% 0;
-            width: 100%;
-        }
-        }
-.maincontent .content {
-    flex-flow: column wrap;
-    width: auto;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
+    .facts {
+        flex-direction: column;
+    }
 }
